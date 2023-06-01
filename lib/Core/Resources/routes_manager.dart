@@ -15,7 +15,7 @@ class RouteGenerator {
       case Routes.firstViewRoute:
         return MaterialPageRoute(builder: (_) => const FirstView());
       case Routes.secondViewRoute:
-        return MaterialPageRoute(builder: (_) => const SecondView());
+        return MaterialPageRoute(builder: (_) => SecondView());
       case Routes.thirdViewRoute:
         return MaterialPageRoute(builder: (_) => const ThirdView());
       default:

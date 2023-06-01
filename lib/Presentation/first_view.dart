@@ -34,7 +34,7 @@ class FirstView extends StatelessWidget {
                 Text(
                   StringManager.subTitle,
                   style: getLightStyle(
-                      color: ColorManager.secondary, fontSize: 15),
+                      color: ColorManager.secondaryLight, fontSize: 15),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 45),

@@ -8,7 +8,8 @@ TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
       fontSize: fontSize,
       fontFamily: FontConstants.fontFamily,
       color: color,
-      fontWeight: fontWeight);
+      fontWeight: fontWeight,
+  );
 }
 
 TextStyle getRegularStyle(
