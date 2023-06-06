@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/Presentation/Widgets/custom_btn.dart';
 
-import '../Core/Resources/uilites.dart';
+import '../../Core/Resources/uilites.dart';
+import '../../Core/Routes/pages_route_name.dart';
 
 class FirstView extends StatelessWidget {
   const FirstView({Key? key}) : super(key: key);
@@ -42,7 +43,8 @@ class FirstView extends StatelessWidget {
                   context,
                   title: StringManager.btnText,
                   onPressed: () {
-                    Navigator.pushNamed(context, Routes.secondViewRoute);
+                    Navigator.pushNamed(
+                        context, PagesRoutesName.secondViewRoute);
                   },
                 ),
               ],

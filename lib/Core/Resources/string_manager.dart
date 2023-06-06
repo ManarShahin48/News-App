@@ -8,12 +8,5 @@ class StringManager {
   static const String secondViewTitle = "Read News Increase Your Knowledge";
   static const String detailNew = "Detail News";
   static const String date = "28 Januari 2020 | 08.53";
-  static const String description = '''Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-diam nonumy eirmod tempor invidunt ut labore et dolore
-magna aliquyam erat, sed diam voluptua. At vero eos et
-acusam et justo duo dolores et ea rebum.
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-diam nonumy eirmod tempor invidunt ut labore et dolore
-magna aliquyam erat, sed diam voluptua.
-  ''';
+
 }
