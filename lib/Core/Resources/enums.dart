@@ -4,5 +4,5 @@ enum RequestState {
   error,
 }
 
-List<String> languagesCode = ['en', 'ar', 'fr', 'ja', 'de'];
-List<String> languages = ['English', 'Arabic', 'French', 'Japanese', 'German'];
+List<String> languagesCode = ['en', 'ar', 'fr', 'ja'];
+List<String> languages = ['English', 'Arabic', 'French', 'Japanese'];

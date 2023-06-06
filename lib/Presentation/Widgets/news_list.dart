@@ -46,7 +46,10 @@ class NewsList extends StatelessWidget {
                                       NetworkImage(cubit.newsList[index].image),
                                   fit: BoxFit.cover),
                             ),
-                            // child: Image.asset(state.newsList[index].image),
+                            child: cubit.lang == 'en'
+                                ? Image.asset(ImageManager.mainImg,
+                                    fit: BoxFit.cover)
+                                : null,
                           ),
                           const SizedBox(
                             width: 20,
@@ -65,7 +68,7 @@ class NewsList extends StatelessWidget {
                                         color: ColorManager.black,
                                         fontSize: 20,
                                       ),
-                                      maxLines: 3,
+                                      maxLines: cubit.lang == 'fr' ? 2 : 3,
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                   ),

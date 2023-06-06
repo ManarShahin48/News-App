@@ -52,17 +52,19 @@ class SecondView extends StatelessWidget {
                           width: MediaQuery.of(context).size.width * 0.74,
                           height: MediaQuery.of(context).size.height * 0.06,
                           child: TextFieldSearch(
-                            initialList: [],
+                            initialList: cubit.newsList,
                             label: '',
                             controller: TextEditingController(),
                           ),
                         ),
-                        customBtn(context,
-                            title: '',
-                            color: ColorManager.primary,
-                            icon: IconManager.filter,
-                            width: 50,
-                            onPressed: () {})
+                        customBtn(
+                          context,
+                          title: '',
+                          color: ColorManager.primary,
+                          icon: IconManager.filter,
+                          width: 50,
+                          onPressed: () {},
+                        )
                       ],
                     ),
                     SizedBox(
