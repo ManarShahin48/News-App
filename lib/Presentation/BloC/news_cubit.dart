@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/Presentation/BloC/news_state.dart';
 
@@ -16,6 +17,7 @@ class NewsCubit extends Cubit<NewsState> {
   List<NewModel> newsList = [];
   RequestState getNewsState = RequestState.loading;
   String message = "";
+  TextEditingController searchController = TextEditingController();
 
   void getNewsData() async {
     GetNewsDataSource getNewsDataSource = GetNewsDataSource();

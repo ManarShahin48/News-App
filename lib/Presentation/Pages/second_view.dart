@@ -54,7 +54,7 @@ class SecondView extends StatelessWidget {
                           child: TextFieldSearch(
                             initialList: cubit.newsList,
                             label: '',
-                            controller: TextEditingController(),
+                            controller: cubit.searchController,
                           ),
                         ),
                         customBtn(
