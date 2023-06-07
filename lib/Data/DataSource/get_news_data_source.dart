@@ -8,13 +8,8 @@ abstract class BaseNewsDataSource {
   Future<List<NewModel>> getNews({
     required String lang,
     required String text,
-    required String location,
-    required String person,
-    required String organization,
   });
 }
-
-// {"LOC": location, "PER": person, "ORG": organization}
 
 class GetNewsDataSource extends BaseNewsDataSource {
   GetNewsDataSource();
@@ -24,16 +19,12 @@ class GetNewsDataSource extends BaseNewsDataSource {
   Future<List<NewModel>> getNews({
     required String lang,
     required String text,
-    required String location,
-    required String person,
-    required String organization,
   }) async {
     final response = await Dio().get(
       APIsManager.searchNews,
       queryParameters: {
         "language": lang,
         "text": text,
-        "entities": 'LOC:$location,ORG:$organization,PER:$person'
       },
     );
     if (response.statusCode == 200) {

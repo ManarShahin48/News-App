@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/Core/Resources/enums.dart';
 import 'package:news_app/Presentation/BloC/news_cubit.dart';
 import 'package:news_app/Presentation/BloC/news_state.dart';
-
 import '../../Core/Resources/uilites.dart';
 import '../Pages/third_view.dart';
 import 'custom_loading.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/Presentation/BloC/news_state.dart';
-import '../../Core/Resources/enums.dart';
+import '../../Core/Resources/constants_manager.dart';
 import '../../Data/DataSource/get_news_data_source.dart';
 import '../../Data/Models/news_model.dart';
 import '../../Data/Repositories/get_news_repo_impl.dart';
@@ -16,10 +16,7 @@ class NewsCubit extends Cubit<NewsStates> {
   List<NewModel> newsList = [];
   RequestState getNewsState = RequestState.loading;
   String message = "";
-  TextEditingController searchController = TextEditingController(),
-      locationController = TextEditingController(),
-      personController = TextEditingController(),
-      organizationController = TextEditingController();
+  TextEditingController searchController = TextEditingController();
 
   void getNewsData() async {
     emit(NewsGetLoadingSearchState());
@@ -32,9 +29,6 @@ class NewsCubit extends Cubit<NewsStates> {
       getNewsRepository,
       lang,
       searchController.text,
-      locationController.text,
-      personController.text,
-      organizationController.text,
     ).execute();
 
     result.fold(
@@ -49,20 +43,11 @@ class NewsCubit extends Cubit<NewsStates> {
         emit(GetNewsState());
       },
     );
-
-    dispose();
   }
 
   void setLang(String language) {
     lang = language;
     getNewsData();
     emit(GetLangState());
-  }
-
-  void dispose() {
-    searchController.clear();
-    locationController.clear();
-    organizationController.clear();
-    personController.clear();
   }
 }

@@ -5,3 +5,4 @@ export '../Routes/routes_manager.dart';
 export 'theme_manager.dart';
 export 'string_manager.dart';
 export 'styles_manager.dart';
+export 'constants_manager.dart';

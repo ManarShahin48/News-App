@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../Core/Resources/uilites.dart';
 
 class CustomLoading extends StatelessWidget {

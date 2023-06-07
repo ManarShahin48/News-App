@@ -9,4 +9,3 @@ class GetNewsState extends NewsStates {}
 class GetLangState extends NewsStates {}
 
 class NewsGetLoadingSearchState extends NewsStates {}
-

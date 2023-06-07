@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/Presentation/BloC/news_state.dart';
 import 'package:news_app/Presentation/Widgets/custom_btn.dart';
-import '../../Core/Resources/enums.dart';
 import '../../Core/Resources/uilites.dart';
 import '../BloC/news_cubit.dart';
 import '../Widgets/custom_loading.dart';
-import '../Widgets/filter_dialog.dart';
 import '../Widgets/news_list.dart';
 
 class SecondView extends StatelessWidget {
@@ -77,9 +75,7 @@ class SecondView extends StatelessWidget {
                           color: ColorManager.primary,
                           icon: IconManager.filter,
                           width: 50,
-                          onPressed: () {
-                            showFilterDialog(context: context);
-                          },
+                          onPressed: () {},
                         )
                       ],
                     ),

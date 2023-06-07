@@ -14,16 +14,10 @@ class GetNewsRepositoryImp extends GetNewsRepository {
   Future<Either<Failure, List<NewModel>>> getNews(
     String lang,
     String text,
-    String location,
-    String person,
-    String organization,
   ) async {
     final result = await dataSource.getNews(
       lang: lang,
       text: text,
-      location: location,
-      person: person,
-      organization: organization,
     );
     try {
       return Right(result);
