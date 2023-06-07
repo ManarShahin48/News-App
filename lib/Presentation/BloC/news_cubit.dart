@@ -16,8 +16,10 @@ class NewsCubit extends Cubit<NewsStates> {
   List<NewModel> newsList = [];
   RequestState getNewsState = RequestState.loading;
   String message = "";
-  TextEditingController searchController = TextEditingController();
-  String searchedText = '';
+  TextEditingController searchController = TextEditingController(),
+      locationController = TextEditingController(),
+      personController = TextEditingController(),
+      organizationController = TextEditingController();
 
   void getNewsData() async {
     emit(NewsGetLoadingSearchState());
@@ -29,7 +31,10 @@ class NewsCubit extends Cubit<NewsStates> {
     final result = await GetNewsUseCase(
       getNewsRepository,
       lang,
-      searchedText,
+      searchController.text,
+      locationController.text,
+      personController.text,
+      organizationController.text,
     ).execute();
 
     result.fold(
@@ -44,6 +49,8 @@ class NewsCubit extends Cubit<NewsStates> {
         emit(GetNewsState());
       },
     );
+
+    dispose();
   }
 
   void setLang(String language) {
@@ -52,4 +59,10 @@ class NewsCubit extends Cubit<NewsStates> {
     emit(GetLangState());
   }
 
+  void dispose() {
+    searchController.clear();
+    locationController.clear();
+    organizationController.clear();
+    personController.clear();
+  }
 }

@@ -24,16 +24,20 @@ Widget customBtn(
       child: Center(
         child: icon != null
             ? Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Image.asset(
+                padding: const EdgeInsets.all(12.0),
+                child: Image.asset(
                   icon,
                   color: iconColor ?? Colors.white,
                   fit: BoxFit.cover,
                 ),
-            )
-            : Text(title,
+              )
+            : Text(
+                title,
                 style: getBoldStyle(
-                    color: textColor ?? Colors.white, fontSize: 16)),
+                  color: textColor ?? Colors.white,
+                  fontSize: 16,
+                ),
+              ),
       ),
     ),
   );

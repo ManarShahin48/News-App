@@ -6,6 +6,7 @@ import '../../Core/Resources/enums.dart';
 import '../../Core/Resources/uilites.dart';
 import '../BloC/news_cubit.dart';
 import '../Widgets/custom_loading.dart';
+import '../Widgets/filter_dialog.dart';
 import '../Widgets/news_list.dart';
 
 class SecondView extends StatelessWidget {
@@ -54,7 +55,6 @@ class SecondView extends StatelessWidget {
                             controller: cubit.searchController,
                             keyboardType: TextInputType.text,
                             onFieldSubmitted: (value) {
-                              cubit.searchedText = value;
                               cubit.getNewsData();
                             },
                             decoration: const InputDecoration(
@@ -77,7 +77,9 @@ class SecondView extends StatelessWidget {
                           color: ColorManager.primary,
                           icon: IconManager.filter,
                           width: 50,
-                          onPressed: () {},
+                          onPressed: () {
+                            showFilterDialog(context: context);
+                          },
                         )
                       ],
                     ),

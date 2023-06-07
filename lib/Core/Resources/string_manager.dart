@@ -8,4 +8,9 @@ class StringManager {
   static const String secondViewTitle = "Read News Increase Your Knowledge";
   static const String detailNew = "Detail News";
   static const String noResults = "No Results";
+  static const String apply = "Apply";
+  static const String cancel = "Cancel";
+  static const String location = "Location";
+  static const String person = "Person";
+  static const String organization = "Organization";
 }
