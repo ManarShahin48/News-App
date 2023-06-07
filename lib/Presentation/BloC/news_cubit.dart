@@ -51,4 +51,5 @@ class NewsCubit extends Cubit<NewsStates> {
     getNewsData();
     emit(GetLangState());
   }
+
 }
