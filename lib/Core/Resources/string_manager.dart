@@ -7,6 +7,5 @@ class StringManager {
   static const String welcome = "Welcome Back, Adam!";
   static const String secondViewTitle = "Read News Increase Your Knowledge";
   static const String detailNew = "Detail News";
-  static const String date = "28 Januari 2020 | 08.53";
-
+  static const String noResults = "No Results";
 }

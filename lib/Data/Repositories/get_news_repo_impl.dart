@@ -11,8 +11,14 @@ class GetNewsRepositoryImp extends GetNewsRepository {
   GetNewsRepositoryImp(this.dataSource);
 
   @override
-  Future<Either<Failure, List<NewModel>>> getNews(String lang) async {
-    final result = await dataSource.getNews(lang: lang);
+  Future<Either<Failure, List<NewModel>>> getNews(
+    String lang,
+    String text,
+  ) async {
+    final result = await dataSource.getNews(
+      lang: lang,
+      text: text,
+    );
     try {
       return Right(result);
     } on ServerException catch (failure) {

@@ -6,24 +6,20 @@ import 'package:news_app/Presentation/BloC/news_state.dart';
 
 import '../../Core/Resources/uilites.dart';
 import '../Pages/third_view.dart';
+import 'custom_loading.dart';
 
 class NewsList extends StatelessWidget {
   const NewsList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NewsCubit, NewsState>(
+    return BlocConsumer<NewsCubit, NewsStates>(
       listener: (context, state) {},
       builder: (context, state) {
         var cubit = NewsCubit.get(context);
         switch (cubit.getNewsState) {
           case RequestState.loading:
-            return const SizedBox(
-              height: 450,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
+            return const CustomLoading();
           case RequestState.loaded:
             return SizedBox(
               height: 450,
@@ -47,8 +43,10 @@ class NewsList extends StatelessWidget {
                                   fit: BoxFit.cover),
                             ),
                             child: cubit.lang == 'en'
-                                ? Image.asset(ImageManager.mainImg,
-                                    fit: BoxFit.cover)
+                                ? Image.asset(
+                                    ImageManager.mainImg,
+                                    fit: BoxFit.cover,
+                                  )
                                 : null,
                           ),
                           const SizedBox(
@@ -68,8 +66,11 @@ class NewsList extends StatelessWidget {
                                         color: ColorManager.black,
                                         fontSize: 20,
                                       ),
-                                      maxLines: cubit.lang == 'fr' ? 2 : 3,
+                                      maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
+                                      textAlign: cubit.lang == 'ar'
+                                          ? TextAlign.right
+                                          : TextAlign.left,
                                     ),
                                   ),
                                   Text(
@@ -79,6 +80,9 @@ class NewsList extends StatelessWidget {
                                     ),
                                     maxLines: 4,
                                     overflow: TextOverflow.ellipsis,
+                                    textAlign: cubit.lang == 'ar'
+                                        ? TextAlign.right
+                                        : TextAlign.left,
                                   )
                                 ],
                               ),
@@ -122,3 +126,5 @@ class NewsList extends StatelessWidget {
     );
   }
 }
+
+// 01552268000

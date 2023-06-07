@@ -5,7 +5,7 @@ import 'package:news_app/Core/Resources/apis_manager.dart';
 import 'package:news_app/Data/Models/news_model.dart';
 
 abstract class BaseNewsDataSource {
-  Future<List<NewModel>> getNews({required String lang});
+  Future<List<NewModel>> getNews({required String lang, required String text});
 }
 
 class GetNewsDataSource extends BaseNewsDataSource {
@@ -13,11 +13,13 @@ class GetNewsDataSource extends BaseNewsDataSource {
 
   /// Check and Get News from API
   @override
-  Future<List<NewModel>> getNews({required String lang}) async {
+  Future<List<NewModel>> getNews(
+      {required String lang, required String text}) async {
     final response = await Dio().get(
       APIsManager.searchNews,
       queryParameters: {
         "language": lang,
+        "text": text,
       },
     );
     if (response.statusCode == 200) {

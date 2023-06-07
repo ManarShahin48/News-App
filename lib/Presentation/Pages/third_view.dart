@@ -171,7 +171,10 @@ class ThirdView extends StatelessWidget {
                       image: NetworkImage(img), fit: BoxFit.cover),
                 ),
                 child: cubit.lang == 'en'
-                    ? Image.asset(ImageManager.mainImg, fit: BoxFit.cover)
+                    ? Image.asset(
+                        ImageManager.mainImg,
+                        fit: BoxFit.cover,
+                      )
                     : null,
               ),
               Padding(
@@ -182,7 +185,11 @@ class ThirdView extends StatelessWidget {
                     Text(
                       title,
                       style: getBoldStyle(
-                          color: ColorManager.secondary, fontSize: 28),
+                        color: ColorManager.secondary,
+                        fontSize: 28,
+                      ),
+                      textAlign:
+                          cubit.lang == 'ar' ? TextAlign.right : TextAlign.left,
                     ),
                     const SizedBox(
                       height: 20,
@@ -190,7 +197,11 @@ class ThirdView extends StatelessWidget {
                     Text(
                       date,
                       style: getLightStyle(
-                          color: ColorManager.secondaryLight, fontSize: 12),
+                        color: ColorManager.secondaryLight,
+                        fontSize: 12,
+                      ),
+                      textAlign:
+                          cubit.lang == 'ar' ? TextAlign.right : TextAlign.left,
                     ),
                     const SizedBox(
                       height: 20,
@@ -198,7 +209,11 @@ class ThirdView extends StatelessWidget {
                     Text(
                       text,
                       style: getLightStyle(
-                          color: ColorManager.secondaryLight, fontSize: 15),
+                        color: ColorManager.secondaryLight,
+                        fontSize: 15,
+                      ),
+                      textAlign:
+                          cubit.lang == 'ar' ? TextAlign.right : TextAlign.left,
                     ),
                   ],
                 ),

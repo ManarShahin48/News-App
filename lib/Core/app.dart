@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
             create: (context) => NewsCubit()..getNewsData()
         )
       ],
-      child: BlocConsumer<NewsCubit, NewsState>(
+      child: BlocConsumer<NewsCubit, NewsStates>(
         listener: (context, state) {},
         builder: (context, state) {
           return MaterialApp(

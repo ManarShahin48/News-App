@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/Presentation/BloC/news_state.dart';
 import 'package:news_app/Presentation/Widgets/custom_btn.dart';
-import 'package:textfield_search/textfield_search.dart';
 import '../../Core/Resources/enums.dart';
 import '../../Core/Resources/uilites.dart';
 import '../BloC/news_cubit.dart';
+import '../Widgets/custom_loading.dart';
 import '../Widgets/news_list.dart';
 
 class SecondView extends StatelessWidget {
@@ -13,7 +13,7 @@ class SecondView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NewsCubit, NewsState>(
+    return BlocConsumer<NewsCubit, NewsStates>(
         listener: (context, state) {},
         builder: (context, state) {
           var cubit = NewsCubit.get(context);
@@ -37,12 +37,11 @@ class SecondView extends StatelessWidget {
                         Image.asset(ImageManager.man, height: 40),
                       ],
                     ),
-                    InkWell(
-                      onTap: () async {},
-                      child: Text(
-                        StringManager.secondViewTitle,
-                        style: getBoldStyle(
-                            color: ColorManager.black, fontSize: 30),
+                    Text(
+                      StringManager.secondViewTitle,
+                      style: getBoldStyle(
+                        color: ColorManager.black,
+                        fontSize: 30,
                       ),
                     ),
                     Row(
@@ -51,10 +50,25 @@ class SecondView extends StatelessWidget {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.74,
                           height: MediaQuery.of(context).size.height * 0.06,
-                          child: TextFieldSearch(
-                            initialList: cubit.newsList,
-                            label: '',
+                          child: TextFormField(
                             controller: cubit.searchController,
+                            keyboardType: TextInputType.text,
+                            onFieldSubmitted: (value) {
+                              cubit.searchedText = value;
+                              cubit.getNewsData();
+                            },
+                            decoration: const InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.search_outlined,
+                                  color: ColorManager.primary,
+                                ),
+                                border: OutlineInputBorder()),
+                            validator: (String? value) {
+                              if (value!.isEmpty) {
+                                return 'Search must not be empty';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                         customBtn(
@@ -95,7 +109,23 @@ class SecondView extends StatelessWidget {
                         },
                       ),
                     ),
-                    const NewsList(),
+                    state is NewsGetLoadingSearchState
+                        ? const SizedBox(height: 450, child: CustomLoading())
+                        : cubit.newsList.isEmpty
+                            ? SizedBox(
+                                height: 450,
+                                child: Center(
+                                  child: Text(
+                                    StringManager.noResults,
+                                    style: getBoldStyle(
+                                      color: ColorManager.black,
+                                      fontSize: 20,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              )
+                            : const NewsList(),
                   ],
                 ),
               ),
